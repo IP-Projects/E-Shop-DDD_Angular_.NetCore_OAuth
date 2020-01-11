@@ -1,0 +1,23 @@
+name: Build
+
+on: [push]
+
+jobs:
+    build:
+        name: Build on ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [windows-latest, ubuntu-latest, macos-latest]
+        steps:
+            - name: Setup .NET Core if necessary
+              uses: actions/setup-dotnet@v1
+              with:
+                  dotnet-version: 3.1.100
+              if: matrix.os == 'macOS-latest' || matrix.os == 'ubuntu-latest'
+
+            - name: Fetch repository
+              uses: actions/checkout@v1
+
+            - name: Build with dotnet
+              run: dotnet build Solution/Solution.sln --configuration Release

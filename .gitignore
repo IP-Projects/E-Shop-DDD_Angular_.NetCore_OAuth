@@ -1,0 +1,7 @@
+**/Debug
+**/bin
+**/node_modules
+**/obj
+**/.vs
+**/.vscode
+**/wwwroot/lib

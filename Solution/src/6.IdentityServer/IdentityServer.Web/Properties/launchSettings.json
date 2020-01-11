@@ -1,0 +1,21 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/IdentityServer.Web",
+      "sslPort": 0
+    },
+    "iisExpress": {
+      "applicationUrl": "http://localhost:61342/",
+      "sslPort": 44321
+    }
+  },
+  "profiles": {
+    "IdentityServer.Web": {
+      "commandName": "IISExpress",
+      "launchUrl": "https://localhost:44359/",
+      "use64Bit": true
+    }
+  }
+}
