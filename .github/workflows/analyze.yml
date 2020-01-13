@@ -1,0 +1,16 @@
+name: Analyze with sonarcloud/sonarqube
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: Build the Docker image
+              run: docker build --rm --file "Dockerfile" --tag sonarqube-dotnet "." --build-arg linkToRepository=https://github.com/IulianOctavianPreda/E-Shop-DDD_Angular_.NetCore_OAuth --build-arg sonarCloudSecret=${{secrets.SONAR_TOKEN}}
+            - name: Run the Docker image
+              run: docker run sonarqube-dotnet
