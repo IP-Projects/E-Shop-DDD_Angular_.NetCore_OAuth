@@ -1,4 +1,4 @@
-name: Analyze with sonarcloud/sonarqube
+name: Analyze
 
 on:
     push:
