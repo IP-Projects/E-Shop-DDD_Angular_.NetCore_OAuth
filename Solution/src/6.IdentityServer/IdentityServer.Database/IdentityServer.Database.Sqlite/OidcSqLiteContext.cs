@@ -1,5 +1,4 @@
 ﻿using System;
-using Domain.Core.DatabaseContext;
 using Domain.Core.UserManagement;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

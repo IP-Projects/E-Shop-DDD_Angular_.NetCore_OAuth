@@ -8,6 +8,6 @@ namespace Domain.Core.Base
     {
         DbSet<T> Set<T>() where T : class;
 
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync();
     }
 }

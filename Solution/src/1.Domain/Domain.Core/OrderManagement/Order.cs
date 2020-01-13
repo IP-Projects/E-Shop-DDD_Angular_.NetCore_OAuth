@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Core.Base;
 using Domain.Core.OrderItemsManagement;
 using Domain.Core.UserManagement;
 
 namespace Domain.Core.OrderManagement
 {
-    public class Order
+    public class Order: IEntity<Guid>
     {
         public Guid Id { get; set; }
         public DateTime PlacedOn { get; set; }

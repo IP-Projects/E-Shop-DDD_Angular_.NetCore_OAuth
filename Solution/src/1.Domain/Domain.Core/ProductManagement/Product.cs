@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Core.Base;
 using Domain.Core.CategoryManagement;
 using Domain.Core.OrderItemsManagement;
 
 namespace Domain.Core.ProductManagement
 {
-    public class Product
+    public class Product : IEntity<Guid>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

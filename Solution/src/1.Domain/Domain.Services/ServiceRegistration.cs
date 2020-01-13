@@ -15,10 +15,12 @@ namespace Domain.Services
 {
     public static class ServiceRegistration
     {
-        public static IServiceCollection ConfigureServices(this IServiceCollection services)
+        public static IServiceCollection ConfigureDomainServices(this IServiceCollection services)
         {
-            return services.ConfigureDatabase()
-                .ConfigureRepositories();
+            return services
+                .ConfigureDatabase()
+                .ConfigureRepositories()
+                .ConfigureListers();
         }
 
         public static IServiceCollection ConfigureDatabase(this IServiceCollection services)
@@ -34,6 +36,13 @@ namespace Domain.Services
                 .AddScoped<IProductRepository, ProductRepository>()
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IOrderItemsRepository, OrderItemsRepository>()
+                ;
+        }
+
+        private static IServiceCollection ConfigureListers(this IServiceCollection services)
+        {
+            return services
+                    .AddScoped<IProductLister, ProductLister>()
                 ;
         }
     }

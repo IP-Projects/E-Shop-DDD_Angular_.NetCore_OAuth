@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Domain\Domain.Core\Domain.Core.csproj" />
+    <ProjectReference Include="..\..\2.Business\Business.Services\Business.Services.csproj" />
+  </ItemGroup>
+
 </Project>
