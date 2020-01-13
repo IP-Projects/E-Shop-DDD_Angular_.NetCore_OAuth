@@ -1,6 +1,6 @@
 ﻿using System;
+using Domain.Core.UserManagement;
 using IdentityServer.Core.Helpers;
-using IdentityServer.Core.UserManagement;
 using IdentityServer.Database.SqlServer;
 using IdentityServer.Services.Helpers;
 using IdentityServer.Services.IdentityClaimsProfileManagement;

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Core.UserManagement;
 using IdentityServer.Web.Models;
 using IdentityServer.Core.Helpers;
-using IdentityServer.Core.UserManagement;
 using IdentityServer.Web.Extensions;
 using IdentityServer4.Events;
 using IdentityServer4.Models;

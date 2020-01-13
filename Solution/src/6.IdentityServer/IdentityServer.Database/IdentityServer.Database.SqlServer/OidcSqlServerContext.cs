@@ -1,6 +1,6 @@
 ﻿using System;
 using Domain.Core.DatabaseContext;
-using IdentityServer.Core.UserManagement;
+using Domain.Core.UserManagement;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

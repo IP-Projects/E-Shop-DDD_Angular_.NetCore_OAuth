@@ -1,12 +1,11 @@
-﻿using Domain.Core.DatabaseContext;
+﻿using Domain.Core.Base;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Database.SqlServer
 {
-    public class DatabaseContext : DbContext
+    public class SqlServerContext : DbContext
     {
-        public DatabaseContext(DbContextOptions options) : base(options)
+        public SqlServerContext(DbContextOptions options) : base(options)
         {
 
         }

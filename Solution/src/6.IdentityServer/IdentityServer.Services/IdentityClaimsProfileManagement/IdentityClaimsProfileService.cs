@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Domain.Core.UserManagement;
 using IdentityModel;
-using IdentityServer.Core.UserManagement;
 using IdentityServer4;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;

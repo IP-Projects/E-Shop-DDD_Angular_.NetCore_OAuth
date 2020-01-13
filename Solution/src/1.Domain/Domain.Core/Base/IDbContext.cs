@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Core.DatabaseContext
+namespace Domain.Core.Base
 {
     public interface IDbContext
     {

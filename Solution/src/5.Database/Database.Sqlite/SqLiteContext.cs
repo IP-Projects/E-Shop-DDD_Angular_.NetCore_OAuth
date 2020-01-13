@@ -2,9 +2,9 @@
 
 namespace Database.SQLite
 {
-    public class DatabaseContext : DbContext
+    public class SqLiteContext : DbContext
     {
-        public DatabaseContext(DbContextOptions options) : base(options)
+        public SqLiteContext(DbContextOptions options) : base(options)
         {
 
         }
@@ -14,7 +14,7 @@ namespace Database.SQLite
             base.OnModelCreating(modelBuilder);
 
             // the name of one of the classes in the project that hosts the mappings/configurations
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DatabaseContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SqLiteContext).Assembly);
         }
     }
 }

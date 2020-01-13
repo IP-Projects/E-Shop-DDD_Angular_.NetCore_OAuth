@@ -1,6 +1,0 @@
-{
-    "ConnectionStrings": {
-        "Development": "Filename=./database.db",
-        "Production": ""
-    }
-}

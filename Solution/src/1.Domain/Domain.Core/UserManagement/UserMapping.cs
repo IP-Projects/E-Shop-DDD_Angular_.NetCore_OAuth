@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IdentityServer.Core.UserManagement
+namespace Domain.Core.UserManagement
 {
     public class UserMapping : IEntityTypeConfiguration<User>
     {

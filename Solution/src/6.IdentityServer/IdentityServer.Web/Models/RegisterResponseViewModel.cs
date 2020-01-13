@@ -1,4 +1,4 @@
-﻿using IdentityServer.Core.UserManagement;
+﻿using Domain.Core.UserManagement;
 
 namespace IdentityServer.Web.Models
 {
