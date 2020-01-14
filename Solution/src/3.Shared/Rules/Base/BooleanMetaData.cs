@@ -3,7 +3,7 @@
 namespace Rules.Base
 {
     [DataContract]
-    public class BooleanMetaData : PropertyMetaData
+    public class BooleanMetaData : PropertyMetaData<bool>
     {
 
     }

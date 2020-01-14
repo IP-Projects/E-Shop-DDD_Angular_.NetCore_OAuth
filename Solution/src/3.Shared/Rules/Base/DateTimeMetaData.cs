@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Rules.Base
 {
     [DataContract]
-    public class DateTimeMetaData : PropertyMetaData
+    public class DateTimeMetaData : PropertyMetaData<DateTime>
     {
         [DataMember]
         public DateTime Start { get; set; }

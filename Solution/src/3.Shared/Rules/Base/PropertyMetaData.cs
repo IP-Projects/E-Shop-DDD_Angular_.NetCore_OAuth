@@ -3,6 +3,18 @@
 namespace Rules.Base
 {
     [DataContract]
+    public abstract class PropertyMetaData<T>
+    {
+        [DataMember]
+        public bool Required { get; set; }
+
+        [DataMember]
+        public string DefaultResource { get; set; }
+        [DataMember]
+        public T DefaultValue { get; set; }
+    }
+
+    [DataContract]
     public abstract class PropertyMetaData
     {
         [DataMember]

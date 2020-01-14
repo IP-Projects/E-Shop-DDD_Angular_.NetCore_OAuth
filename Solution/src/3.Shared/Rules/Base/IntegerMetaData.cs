@@ -3,7 +3,7 @@
 namespace Rules.Base
 {
     [DataContract]
-    public class IntegerMetaData : PropertyMetaData
+    public class IntegerMetaData : PropertyMetaData<int>
     {
         [DataMember]
         public int MinValue { get; set; }

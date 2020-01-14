@@ -3,7 +3,7 @@
 namespace Rules.Base
 {
     [DataContract]
-    public class StringMetaData : PropertyMetaData
+    public class StringMetaData : PropertyMetaData<string>
     {
         [DataMember]
         public int MinLength { get; set; }
