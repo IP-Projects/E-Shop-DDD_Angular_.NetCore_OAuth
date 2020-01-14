@@ -1,8 +1,14 @@
 ﻿using Database.SqlServer;
+using Domain.Core.Base;
+using Domain.Core.CategoryManagement;
 using Domain.Core.CategoryManagement.Interfaces;
+using Domain.Core.OrderItemsManagement;
 using Domain.Core.OrderItemsManagement.Interfaces;
+using Domain.Core.OrderManagement;
 using Domain.Core.OrderManagement.Interfaces;
+using Domain.Core.ProductManagement;
 using Domain.Core.ProductManagement.Interfaces;
+using Domain.Core.UserManagement;
 using Domain.Core.UserManagement.Interfaces;
 using Domain.Services.CategoryManagement;
 using Domain.Services.OrderItemsManagement;
@@ -36,6 +42,12 @@ namespace Domain.Services
                 .AddScoped<IProductRepository, ProductRepository>()
                 .AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IOrderItemsRepository, OrderItemsRepository>()
+
+                .AddScoped<IBaseRepository<Category>, CategoryRepository>()
+                .AddScoped<IBaseRepository<Order>, OrderRepository>()
+                .AddScoped<IBaseRepository<Product>, ProductRepository>()
+                .AddScoped<IBaseReadOnlyRepository<User>, UserRepository>()
+                .AddScoped<IBaseRepository<OrderItems>, OrderItemsRepository>()
                 ;
         }
 

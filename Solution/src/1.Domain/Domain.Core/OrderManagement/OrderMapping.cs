@@ -1,6 +1,7 @@
 ﻿using Domain.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Rules.OrderManagement;
 
 namespace Domain.Core.OrderManagement
 {
@@ -14,14 +15,17 @@ namespace Domain.Core.OrderManagement
         {
             builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.PlacedOn).IsRequired();
+            builder.Property(e => e.PlacedOn)
+                .IsRequired(OrderRule.PlacedOn.Required);
 
             builder.HasOne(e => e.User)
-                .WithMany(o => o.Orders)
-                .HasForeignKey(e => e.UserId);
+                .WithMany(m => m.Orders)
+                .HasForeignKey(e => e.UserId)
+                .IsRequired(OrderRule.User.Required);
 
             builder.HasMany(e => e.Items)
-                .WithOne(i => i.Order);
+                .WithOne(i => i.Order)
+                .IsRequired(OrderRule.Items.Required);
         }
     }
 }

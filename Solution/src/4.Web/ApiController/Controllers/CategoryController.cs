@@ -1,4 +1,7 @@
-﻿using Domain.Core.CategoryManagement.Interfaces;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Business.DataContracts.CategoryManagement;
+using Business.ServiceContracts.CategoryManagement;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,16 +11,18 @@ namespace ApiController.Controllers
     [Route("api/[controller]")]
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _repository;
-        public CategoryController(ICategoryRepository repository)
+        private readonly ICategoryDetailService _detailService;
+
+        public CategoryController(ICategoryDetailService detailService)
         {
-            _repository = repository;
+            _detailService = detailService;
         }
 
         [HttpGet]
-        public void GetAll()
+        [Route("")]
+        public async Task<IEnumerable<CategoryDetail>> GetAll()
         {
-            
+            return await _detailService.GetAllCategories();
         }
     }
 }

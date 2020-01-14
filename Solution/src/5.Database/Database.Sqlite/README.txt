@@ -3,11 +3,12 @@ Select Database.SQLite
 
 Run for initial migration
 
-Add-Migration InitialCreate -Context DatabaseContext -Project Database.SQLite -StartUpProject Database.SQLite
+Add-Migration InitialCreate -Context SqLiteContext -Project Database.SQLite -StartUpProject Database.SQLite
 
 For migrations
-Add-Migration <name> -Context DatabaseContext -Project Database.SQLite -StartUpProject Database.SQLite
+Add-Migration <name> -Context SqLiteContext -Project Database.SQLite -StartUpProject Database.SQLite
+Remove-Migration -Context SqLiteContext -Project Database.SqlServer -StartUpProject Database.SqlServer
 
 For updating database 
 
-Update-Database -Context DatabaseContext -Project Database.SQLite -StartUpProject Database.SQLite
+Update-Database -Context SqLiteContext -Project Database.SQLite -StartUpProject Database.SQLite

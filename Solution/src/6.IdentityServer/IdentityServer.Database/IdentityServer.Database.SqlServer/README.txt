@@ -12,6 +12,9 @@ For migrations
 Add-Migration <name> -Context OidcSqlServerContext -Project IdentityServer.Database.SqlServer -StartUpProject IdentityServer.Database.SqlServer
 Add-Migration <name> -Context PersistedGrantDbContext -Project IdentityServer.Database.SqlServer -StartUpProject IdentityServer.Database.SqlServer
 
+Remove-Migration -Context OidcSqlServerContext -Project IdentityServer.Database.SqlServer -StartUpProject IdentityServer.Database.SqlServer
+Remove-Migration -Context PersistedGrantDbContext -Project IdentityServer.Database.SqlServer -StartUpProject IdentityServer.Database.SqlServer
+
 For updating database 
 
 Update-Database -Context OidcSqlServerContext -Project IdentityServer.Database.SqlServer -StartUpProject IdentityServer.Database.SqlServer

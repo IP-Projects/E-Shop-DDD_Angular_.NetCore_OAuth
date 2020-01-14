@@ -16,6 +16,8 @@ namespace Business.Services.OrderItemsManagement
 
                 ProductId = entity.ProductId ,
                 Product = entity.Product.ToDetail(),
+
+                Quantity = entity.Quantity
             };
         }
     }

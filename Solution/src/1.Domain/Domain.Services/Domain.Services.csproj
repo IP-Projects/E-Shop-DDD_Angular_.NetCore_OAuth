@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\3.Shared\Common\Common.csproj" />
     <ProjectReference Include="..\..\5.Database\Database.SqlServer\Database.SqlServer.csproj" />
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
   </ItemGroup>

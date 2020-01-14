@@ -17,5 +17,7 @@ namespace Business.DataContracts.OrderItemsManagement
         public Guid ProductId { get; set; }
         [DataMember]
         public ProductDetail Product { get; set; }
+        [DataMember]
+        public int Quantity{ get; set; }
     }
 }

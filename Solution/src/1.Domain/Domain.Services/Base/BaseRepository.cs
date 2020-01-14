@@ -1,68 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Core.Base;
-using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services.Base
 {
-    public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
+    public abstract class BaseRepository<T> : BaseReadOnlyRepository<T>, IBaseRepository<T> 
+    where T : class
     {
-        private readonly IDbContext _context;
-
         protected BaseRepository(IDbContext context)
+            :base(context)
         {
-            _context = context;
+        }
+        
+        public virtual async Task Create(T entity)
+        {
+            Context.Set<T>().Add(entity);
+            await Context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(
-            Func<IQueryable<T>, IQueryable<T>> query = null)
+        public virtual async Task Create(IEnumerable<T> entities)
         {
-            var entities = _context.Set<T>().AsNoTracking();
-            return query != null
-                ? await query(entities).ToListAsync()
-                : await entities.ToListAsync();
+            Context.Set<T>().AddRange(entities);
+            await Context.SaveChangesAsync();
         }
 
-        public async Task<T> GetByAsync(Expression<Func<T, bool>> expression,
-            Func<IQueryable<T>, IQueryable<T>> query)
+        public virtual async Task Update(T entity)
         {
-            var entities = _context.Set<T>().Where(expression);
-
-            return query != null
-                ? await query(entities).FirstOrDefaultAsync()
-                : await entities.FirstOrDefaultAsync();
+            Context.Set<T>().Update(entity);
+            await Context.SaveChangesAsync();
         }
 
-        public async Task<T> ReadOnlyGetByAsync(Expression<Func<T, bool>> expression,
-            Func<IQueryable<T>, IQueryable<T>> query)
+        public virtual async Task Delete(T entity)
         {
-            var entities = _context.Set<T>().Where(expression).AsNoTracking();
-
-            return query != null
-                ? await query(entities).FirstOrDefaultAsync()
-                : await entities.FirstOrDefaultAsync();
-        }
-
-        public async Task Create(T entity)
-        {
-            _context.Set<T>().Add(entity);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Update(T entity)
-        {
-            _context.Set<T>().Update(entity);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Delete(T entity)
-        {
-            _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
+            Context.Set<T>().Remove(entity);
+            await Context.SaveChangesAsync();
         }
     }
 }

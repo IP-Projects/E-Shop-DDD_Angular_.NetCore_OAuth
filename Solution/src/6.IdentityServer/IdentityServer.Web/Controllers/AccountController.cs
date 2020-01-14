@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Rules.UserManagement;
 
 namespace IdentityServer.Web.Controllers
 {
@@ -170,7 +171,7 @@ namespace IdentityServer.Web.Controllers
             await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("userName", user.UserName));
             await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("name", user.Name));
             await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("email", user.Email));
-            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("role", RolesResolver.Consumer));
+            await _userManager.AddClaimAsync(user, new System.Security.Claims.Claim("role", UserRule.Consumer));
 
             return Ok(new RegisterResponseViewModel(user));
         }

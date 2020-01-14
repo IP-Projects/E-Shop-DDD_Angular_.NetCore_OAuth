@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.Helpers;
 using Domain.Core.Base;
+using Domain.Core.ProductManagement;
 
 namespace Domain.Services.Base
 {
@@ -11,7 +13,6 @@ namespace Domain.Services.Base
     where TRepository:class
     {
         protected readonly TRepository Repository;
-        //protected abstract Func<IQueryable<TEntity>, IQueryable<TEntity>> Query { get; set; }
 
         protected BaseLister(TRepository repository)
         {
@@ -19,11 +20,19 @@ namespace Domain.Services.Base
         }
 
         public abstract Task<IEnumerable<TEntity>> List();
-
-        //protected Func<IQueryable<TEntity>, IQueryable<TEntity>> AddQuery(
-        //    Func<IQueryable<TEntity>, IQueryable<TEntity>> query)
-        //{
-        //    Query.
-        //}
+        
+        // TODO must be modified to be used with different types of operation like contains
+        public IQueryable<TEntity> ConstructQuery(IQueryable<TEntity> query)
+        {
+            var properties = ObjectMethods.GetProperties(this);
+            foreach (var (key, value) in properties)
+            {
+                if (value != null)
+                {
+                    query = query.Where(x => x.GetType().GetProperty(key).GetValue(x, null) == value);
+                }
+            }
+            return query;
+        }
     }
 }
